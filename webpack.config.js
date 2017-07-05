@@ -1,3 +1,5 @@
+
+
 module.exports = {
   entry: ['./src/index.js'],
   output: {
@@ -7,6 +9,21 @@ module.exports = {
   },
 
   module: {
+    rules: [
+      {
+        test: /\.css/,
+        use: [
+          {loader: 'style-loader'},
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true
+            }
+        }
+        ]
+      }
+    ],
+
     loaders: [{
       exclude: /node_modules/,
       loader: 'babel-loader',
@@ -14,6 +31,7 @@ module.exports = {
         presets: ['react', 'es2015', 'stage-1']
       }
     }]
+
   },
 
   resolve: {

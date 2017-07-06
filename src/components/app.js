@@ -6,7 +6,7 @@ import {increaseCounter} from '../actions'
 class App extends Component {
 
   render() {
-    console.log('Props: ', this.props);
+
     return (
       <div>
         <div className='text'>
@@ -26,7 +26,7 @@ function mapActionToProps(dispatch){
 }
 
 function mapStateToProps(state){
-  console.log('state: ', state);
+
   return {count: state};
 }
 export default connect(mapStateToProps, mapActionToProps)(App);

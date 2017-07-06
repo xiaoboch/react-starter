@@ -1,7 +1,7 @@
 
 
 module.exports = {
-  entry: ['./src/index.js'],
+  entry: './src/index.js',
   output: {
     path: __dirname,
     publicPath: '/',
@@ -9,22 +9,11 @@ module.exports = {
   },
 
   module: {
-    rules: [
-      {
-        test: /\.css/,
-        use: [
-          {loader: 'style-loader'},
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true
-            }
-        }
-        ]
-      }
-    ],
+
 
     loaders: [{
+      test: /\.js$/,
+      include: __dirname + '/src/',
       exclude: /node_modules/,
       loader: 'babel-loader',
       query: {
@@ -35,7 +24,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: [ '.js', '.jsx']
+    extensions: ['.js', '.jsx']
   },
   devServer: {
     historyApiFallback: true,
